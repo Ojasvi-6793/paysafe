@@ -1,21 +1,17 @@
-[![Build Status](https://travis-ci.com/givanthak/spring-boot-rest-api-tutorial.svg?branch=master)](https://travis-ci.com/givanthak/spring-boot-rest-api-tutorial)
-[![Known Vulnerabilities](https://snyk.io/test/github/givanthak/spring-boot-rest-api-tutorial/badge.svg)](https://snyk.io/test/github/givanthak/spring-boot-rest-api-tutorial)
 
-
-
-# Sample REST CRUD API with Spring Boot, Mysql, JPA and Hibernate 
+# My application to make payment with paysafe 
 
 ## Steps to Setup
 
 **1. Clone the application**
 
 ```bash
-https://github.com/givanthak/spring-boot-rest-api-tutorial.git
+https://github.com/Ojasvi-6793/paysafe.git
 ```
 
 **2. Create Mysql database**
 ```bash
-create database user_database
+create database customers
 ```
 
 **3. Change mysql username and password as per your installation**
@@ -28,7 +24,7 @@ create database user_database
 
 ```bash
 mvn package
-java -jar target/spring-boot-rest-api-tutorial-0.0.1-SNAPSHOT.jar
+java -jar target/ojasvi-paysafe-1.0.1.jar
 
 ```
 
@@ -53,7 +49,3 @@ The app defines following CRUD APIs.
     PUT /api/v1/users/{userId}
     
     DELETE /api/v1/users/{userId}
-
-You can find the tutorial for this application on my blog -
-
-<https://www.prathapgivantha.wordpress.com>

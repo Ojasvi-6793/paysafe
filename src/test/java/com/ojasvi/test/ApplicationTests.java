@@ -1,6 +1,5 @@
-package com.staxrt.tutorial;
+package com.ojasvi.test;
 
-import com.staxrt.tutorial.model.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,9 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.HttpClientErrorException;
+
+import com.ojasvi.paysafe.Application;
+import com.ojasvi.paysafe.model.User;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -54,8 +60,7 @@ public class ApplicationTests {
 		user.setEmail("admin@gmail.com");
 		user.setFirstName("admin");
 		user.setLastName("admin");
-		user.setCreatedBy("admin");
-		user.setUpdatedBy("admin");
+
 
 		ResponseEntity<User> postResponse = restTemplate.postForEntity(getRootUrl() + "/users", user, User.class);
 		Assert.assertNotNull(postResponse);

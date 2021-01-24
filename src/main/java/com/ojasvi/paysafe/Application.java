@@ -1,4 +1,4 @@
-package com.staxrt.tutorial;
+package com.ojasvi.paysafe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * The type Application.
  *
- * @author Givantha Kalansuriya
+ * @author Ojasvi Agrawal
  */
 @SpringBootApplication
 public class Application {

@@ -1,42 +1,31 @@
-/*
- *
- *  Copyright (c) 2018-2020 Givantha Kalansuriya, This source is a part of
- *   Staxrt - sample application source code.
- *   http://staxrt.com
- *
- *   Licensed under the Apache License, Version 2.0 (the "License");
- *   you may not use this file except in compliance with the License.
- *   You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing, software
- *   distributed under the License is distributed on an "AS IS" BASIS,
- *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *   See the License for the specific language governing permissions and
- *   limitations under the License.
- *
- */
 
-package com.staxrt.tutorial.controller;
+package com.ojasvi.paysafe.controller;
 
-import com.staxrt.tutorial.exception.ResourceNotFoundException;
-import com.staxrt.tutorial.model.User;
-import com.staxrt.tutorial.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ojasvi.paysafe.exception.ResourceNotFoundException;
+import com.ojasvi.paysafe.model.User;
+import com.ojasvi.paysafe.repository.UserRepository;
+
 /**
  * The type User controller.
  *
- * @author Givantha Kalansuriya
+ * @author Ojasvi Agrawal
  */
 @RestController
 @RequestMapping("/api/v1")
@@ -101,10 +90,19 @@ public class UserController {
             .findById(userId)
             .orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + userId));
 
-    user.setEmail(userDetails.getEmail());
-    user.setLastName(userDetails.getLastName());
-    user.setFirstName(userDetails.getFirstName());
-    user.setUpdatedAt(new Date());
+		user.setCity(userDetails.getCity());
+		user.setCountry(userDetails.getCountry());
+		user.setNickName(userDetails.getNickName());
+		user.setEmail(userDetails.getEmail());
+		user.setLastName(userDetails.getLastName());
+		user.setFirstName(userDetails.getFirstName());
+		user.setPhone(userDetails.getPhone());
+		user.setState(userDetails.getState());
+		user.setStreet(userDetails.getStreet());
+		user.setStreet2(userDetails.getStreet2());
+		user.setZip(userDetails.getZip());
+
+		// to do _ fill other methods of users
     final User updatedUser = userRepository.save(user);
     return ResponseEntity.ok(updatedUser);
   }
